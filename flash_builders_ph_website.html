@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flash Builders PH | Interior Design & Fit-Out Contractor</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0F172A',     /* Deep Slate */
+                            card: '#1E293B',     /* Dark Card Slate */
+                            accent: '#D97706',   /* Warm Wood / Gold Amber */
+                            lightGold: '#FBBF24',
+                            wood: '#B45309',
+                            muted: '#64748B'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(217, 119, 6, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .glass-panel {
+            background: rgba(30, 41, 59, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        /* Custom scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D97706;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-slate-100 antialiased min-h-screen flex flex-col selection:bg-brand-accent selection:text-white">
+
+    <!-- Top Announcement & Quick Contact Bar -->
+    <div class="bg-brand-accent text-white text-xs sm:text-sm py-2 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 font-medium">
+            <div class="flex items-center gap-2 text-center sm:text-left">
+                <span class="bg-black/20 px-2 py-0.5 rounded text-xs font-bold uppercase tracking-wider">Accepting Projects</span>
+                <span>Interior Design, Modular Cabinets & Fit-Out Renovations in Metro Manila & Nearby</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs sm:text-sm">
+                <a href="https://wa.me/639478840105" target="_blank" class="hover:underline flex items-center gap-1.5">
+                    <i class="fa-brands fa-viber"></i> Viber: 0947 884 0105
+                </a>
+                <span class="opacity-50">|</span>
+                <a href="mailto:flashbuildersph@gmail.com" class="hover:underline flex items-center gap-1.5">
+                    <i class="fa-solid fa-envelope"></i> flashbuildersph@gmail.com
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation Header -->
+    <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Brand Logo & Name -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-accent to-brand-wood flex items-center justify-center text-white shadow-lg shadow-brand-accent/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-hammer text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-xl font-extrabold tracking-tight text-white block leading-tight">
+                            FLASH BUILDERS <span class="text-brand-accent">PH</span>
+                        </span>
+                        <span class="text-[10px] text-slate-400 font-semibold tracking-widest uppercase block">Interior Design & Fit-Out</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-300">
+                    <a href="#services" class="hover:text-brand-accent transition-colors">Services</a>
+                    <a href="#projects" class="hover:text-brand-accent transition-colors">Projects Showcase</a>
+                    <a href="#calculator" class="hover:text-brand-accent transition-colors flex items-center gap-1">
+                        <i class="fa-solid fa-calculator text-brand-accent text-xs"></i>
+                        Estimator
+                    </a>
+                    <a href="#process" class="hover:text-brand-accent transition-colors">Our Process</a>
+                    <a href="#testimonials" class="hover:text-brand-accent transition-colors">Reviews</a>
+                </nav>
+
+                <!-- Desktop Call To Action -->
+                <div class="hidden md:flex items-center gap-3">
+                    <button onclick="openModal('quoteModal')" class="bg-gradient-to-r from-brand-accent to-brand-wood hover:brightness-110 text-white font-bold text-sm px-5 py-2.5 rounded-xl shadow-lg shadow-brand-accent/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Get Free Estimate
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" onclick="toggleMobileMenu()" class="md:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 focus:outline-none">
+                    <i id="menuIcon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden border-t border-slate-800 bg-brand-dark px-4 pt-3 pb-6 space-y-3">
+            <a href="#services" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-brand-accent font-medium">Services</a>
+            <a href="#projects" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-brand-accent font-medium">Projects Showcase</a>
+            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-brand-accent font-medium">Cost Estimator Calculator</a>
+            <a href="#process" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-brand-accent font-medium">Our Process</a>
+            <a href="#testimonials" onclick="toggleMobileMenu()" class="block py-2 text-slate-200 hover:text-brand-accent font-medium">Client Reviews</a>
+            <div class="pt-2">
+                <button onclick="toggleMobileMenu(); openModal('quoteModal');" class="w-full bg-brand-accent text-white font-bold py-3 rounded-xl text-center shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Get Free Quote
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-brand-dark py-16 lg:py-24 overflow-hidden bg-grid-pattern">
+        <!-- Glow accents -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-[300px] h-[300px] bg-amber-600/10 rounded-full blur-2xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/30 text-brand-lightGold text-xs sm:text-sm font-semibold">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Quality Modular Cabinetry & Turnkey Fit-Outs</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        We build functional, stylish & <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-lightGold via-brand-accent to-amber-500">durable spaces</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Transform your home or business with Metro Manila’s trusted interior fit-out contractors. From high-grade Marine Plywood modular cabinets to full kitchen turnkeys and ceiling designs.
+                    </p>
+
+                    <!-- Key Bullet Points -->
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs sm:text-sm font-medium text-slate-300 max-w-xl mx-auto lg:mx-0">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> High-Grade Marine Plywood
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> Soft-Close Hardware
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> Transparent Pricing
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> 3D Design Layouts
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> On-Time Turnovers
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-brand-accent"></i> Free Site Measurement
+                        </div>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <button onclick="openModal('quoteModal')" class="w-full sm:w-auto bg-gradient-to-r from-brand-accent to-brand-wood hover:brightness-110 text-white font-bold text-base px-8 py-4 rounded-xl shadow-xl shadow-brand-accent/20 transition-all flex items-center justify-center gap-3 group">
+                            <span>Request Estimate</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                        </button>
+
+                        <a href="https://wa.me/639478840105" target="_blank" class="w-full sm:w-auto glass-panel hover:bg-slate-800 text-slate-200 border border-slate-700 font-bold text-base px-6 py-4 rounded-xl transition-all flex items-center justify-center gap-2">
+                            <i class="fa-brands fa-viber text-purple-400 text-lg"></i>
+                            <span>Chat on Viber</span>
+                        </a>
+                    </div>
+
+                    <!-- Trust Stats -->
+                    <div class="pt-6 border-t border-slate-800 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <span class="text-2xl sm:text-3xl font-black text-brand-lightGold block">100+</span>
+                            <span class="text-xs text-slate-400 uppercase font-semibold">Completed Projects</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl sm:text-3xl font-black text-brand-lightGold block">100%</span>
+                            <span class="text-xs text-slate-400 uppercase font-semibold">Marine Plywood Built</span>
+                        </div>
+                        <div>
+                            <span class="text-2xl sm:text-3xl font-black text-brand-lightGold block">4.9★</span>
+                            <span class="text-xs text-slate-400 uppercase font-semibold">Client Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Hero Image Feature Card -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Decorative Frame -->
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-brand-accent to-amber-600 rounded-2xl blur opacity-30"></div>
+                        
+                        <div class="relative glass-panel rounded-2xl overflow-hidden p-3 border border-slate-700/60 shadow-2xl">
+                            <div class="relative h-[340px] sm:h-[420px] rounded-xl overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1000&q=80" alt="Flash Builders Modern Kitchen Fitout" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent"></div>
+                                
+                                <!-- Floating Badge -->
+                                <div class="absolute top-4 right-4 bg-emerald-500/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1.5 shadow-lg">
+                                    <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span>
+                                    <span>Recent Turnover</span>
+                                </div>
+
+                                <div class="absolute bottom-4 left-4 right-4 p-4 rounded-xl bg-slate-900/90 backdrop-blur-md border border-slate-700/80">
+                                    <div class="flex justify-between items-start">
+                                        <div>
+                                            <p class="text-xs font-bold text-brand-lightGold uppercase tracking-wider">East Fairview, Quezon City</p>
+                                            <h3 class="text-base font-bold text-white">Modern Modular Kitchen & Quartz Slab</h3>
+                                        </div>
+                                        <span class="bg-slate-800 text-slate-300 text-xs px-2.5 py-1 rounded font-mono font-medium">Turnkey</span>
+                                    </div>
+                                    <p class="text-xs text-slate-300 mt-2 line-clamp-2">High-gloss finish, marine plywood core, under-cabinet cove LEDs, and soft-closing drawer guides.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-slate-900/50 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-xs sm:text-sm uppercase tracking-widest block mb-2">Tailored Solutions</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Our Core Services & Specializations</h2>
+                <p class="text-slate-400 mt-3 text-base">From single cabinetry fabrication to full residential & commercial interior fit-outs.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="servicesGrid">
+                <!-- Services will be injected via JavaScript for crisp reusability -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categorized Projects Portfolio Section -->
+    <section id="projects" class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brand-accent font-bold text-xs sm:text-sm uppercase tracking-widest block mb-2">Our Portfolio</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Featured & Ongoing Projects</h2>
+                    <p class="text-slate-400 mt-2 text-sm sm:text-base">Filter through our real project sites in Metro Manila, Quezon City, Caloocan, and nearby provinces.</p>
+                </div>
+
+                <div class="flex items-center gap-2 text-xs text-slate-400">
+                    <span class="inline-block w-3 h-3 rounded-full bg-emerald-500"></span> Completed
+                    <span class="inline-block w-3 h-3 rounded-full bg-amber-500 ml-2"></span> Ongoing Site
+                </div>
+            </div>
+
+            <!-- Portfolio Filter Tabs -->
+            <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar scroll-smooth">
+                <button onclick="filterProjects('all', this)" class="project-tab active-tab bg-brand-accent text-white px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap shadow-md transition-all">
+                    All Projects
+                </button>
+                <button onclick="filterProjects('completed', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    <i class="fa-solid fa-check-circle text-emerald-400 mr-1.5"></i> Completed
+                </button>
+                <button onclick="filterProjects('ongoing', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    <i class="fa-solid fa-spinner text-amber-400 mr-1.5 animate-spin"></i> Ongoing Sites
+                </button>
+                <button onclick="filterProjects('kitchen', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    Kitchen Renovations
+                </button>
+                <button onclick="filterProjects('modular', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    Modular Cabinets
+                </button>
+                <button onclick="filterProjects('ceiling', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    Ceiling & Lighting
+                </button>
+                <button onclick="filterProjects('condo', this)" class="project-tab bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl text-sm font-semibold whitespace-nowrap transition-all">
+                    Condo & Commercial
+                </button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                <!-- Javascript will dynamic populate projects -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Quotation Calculator / Estimate Builder -->
+    <section id="calculator" class="py-20 bg-slate-900 border-y border-slate-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-brand-accent font-bold text-xs sm:text-sm uppercase tracking-widest block mb-2">Instant Budget Estimator</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Project Estimate Calculator</h2>
+                <p class="text-slate-400 mt-3 text-sm sm:text-base">Get an immediate estimated price range for your modular cabinetry or renovation project before scheduling a site visit.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Calculator Controls -->
+                <div class="lg:col-span-7 glass-panel p-6 sm:p-8 rounded-2xl border border-slate-700 space-y-6">
+                    
+                    <!-- Step 1: Select Project Type -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-200 mb-3">1. Select Project Type</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <button type="button" onclick="setCalcCategory('kitchen', this)" class="calc-cat-btn active-calc p-3 rounded-xl border border-brand-accent bg-brand-accent/20 text-white font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-utensils text-lg text-brand-lightGold"></i>
+                                <span>Kitchen Cabinets</span>
+                            </button>
+                            <button type="button" onclick="setCalcCategory('wardrobe', this)" class="calc-cat-btn p-3 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-300 font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-door-closed text-lg text-slate-400"></i>
+                                <span>Wardrobes / Closet</span>
+                            </button>
+                            <button type="button" onclick="setCalcCategory('ceiling', this)" class="calc-cat-btn p-3 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-300 font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-lightbulb text-lg text-slate-400"></i>
+                                <span>Ceiling & Cove Light</span>
+                            </button>
+                            <button type="button" onclick="setCalcCategory('countertop', this)" class="calc-cat-btn p-3 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-300 font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-layer-group text-lg text-slate-400"></i>
+                                <span>Quartz Countertop</span>
+                            </button>
+                            <button type="button" onclick="setCalcCategory('condo', this)" class="calc-cat-btn p-3 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-300 font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-building text-lg text-slate-400"></i>
+                                <span>Full Fit-Out Studio</span>
+                            </button>
+                            <button type="button" onclick="setCalcCategory('roofing', this)" class="calc-cat-btn p-3 rounded-xl border border-slate-700 bg-slate-800/60 hover:bg-slate-800 text-slate-300 font-semibold text-xs sm:text-sm flex flex-col items-center gap-2 transition-all">
+                                <i class="fa-solid fa-house-chimney text-lg text-slate-400"></i>
+                                <span>Roof & Metal Works</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Dimensions / Quantity -->
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="block text-sm font-bold text-slate-200" id="calcMetricLabel">2. Estimated Length (Linear Meters)</label>
+                            <span class="text-brand-lightGold font-mono font-bold text-base" id="calcValueDisplay">4 Meters</span>
+                        </div>
+                        <input type="range" id="calcRange" min="2" max="25" value="4" step="0.5" oninput="updateCalculator()" class="w-full accent-brand-accent h-2 bg-slate-700 rounded-lg cursor-pointer">
+                        <div class="flex justify-between text-[11px] text-slate-400 mt-1 font-mono">
+                            <span id="calcMinLabel">2 meters</span>
+                            <span id="calcMaxLabel">25 meters</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Material Grade Selection -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-200 mb-3">3. Material / Hardware Finish Grade</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="relative flex items-center p-3 rounded-xl border border-slate-700 bg-slate-800/40 cursor-pointer hover:bg-slate-800">
+                                <input type="radio" name="materialGrade" value="standard" checked onchange="updateCalculator()" class="text-brand-accent focus:ring-brand-accent h-4 w-4">
+                                <div class="ml-3">
+                                    <span class="block text-sm font-semibold text-white">Marine Plywood + Laminate</span>
+                                    <span class="block text-xs text-slate-400">Standard Soft-Close Hinges</span>
+                                </div>
+                            </label>
+
+                            <label class="relative flex items-center p-3 rounded-xl border border-slate-700 bg-slate-800/40 cursor-pointer hover:bg-slate-800">
+                                <input type="radio" name="materialGrade" value="premium" onchange="updateCalculator()" class="text-brand-accent focus:ring-brand-accent h-4 w-4">
+                                <div class="ml-3">
+                                    <span class="block text-sm font-semibold text-brand-lightGold">Premium Acrylic / HGS</span>
+                                    <span class="block text-xs text-slate-400">Heavy Duty DTC Soft-Close</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Add-on Checkboxes -->
+                    <div>
+                        <label class="block text-sm font-bold text-slate-200 mb-2">4. Optional Add-ons</label>
+                        <div class="space-y-2 text-xs sm:text-sm">
+                            <label class="flex items-center gap-2.5 text-slate-300 cursor-pointer">
+                                <input type="checkbox" id="addonDemo" onchange="updateCalculator()" class="rounded border-slate-700 text-brand-accent focus:ring-brand-accent">
+                                <span>Demolition & Removal of existing cabinets/slab (+₱8,500)</span>
+                            </label>
+                            <label class="flex items-center gap-2.5 text-slate-300 cursor-pointer">
+                                <input type="checkbox" id="addonLed" onchange="updateCalculator()" class="rounded border-slate-700 text-brand-accent focus:ring-brand-accent">
+                                <span>Under-cabinet Warm Cove Light Strips (+₱4,500)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Live Summary Display Box -->
+                <div class="lg:col-span-5 glass-panel p-6 sm:p-8 rounded-2xl border border-brand-accent/40 bg-gradient-to-b from-slate-900 via-brand-card to-slate-950 shadow-2xl space-y-6">
+                    <div class="border-b border-slate-800 pb-4">
+                        <span class="text-xs uppercase tracking-widest font-bold text-brand-lightGold block">Estimated Investment Range</span>
+                        <h3 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 font-mono" id="calcTotalPrice">₱38,000 - ₱46,000</h3>
+                        <p class="text-xs text-slate-400 mt-1">Includes labor, fabrication, materials, delivery & installation.</p>
+                    </div>
+
+                    <div class="space-y-2.5 text-xs text-slate-300">
+                        <div class="flex justify-between py-1 border-b border-slate-800/60">
+                            <span class="text-slate-400">Selected Category:</span>
+                            <span class="font-bold text-white" id="summaryCategory">Kitchen Cabinets</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/60">
+                            <span class="text-slate-400">Estimated Quantity:</span>
+                            <span class="font-bold text-white" id="summaryQty">4 Linear Meters</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/60">
+                            <span class="text-slate-400">Material Core:</span>
+                            <span class="font-bold text-white" id="summaryMaterial">100% Marine Plywood</span>
+                        </div>
+                        <div class="flex justify-between py-1 border-b border-slate-800/60">
+                            <span class="text-slate-400">Est. Fabrication Time:</span>
+                            <span class="font-bold text-brand-lightGold" id="summaryTimeline">7 - 12 Working Days</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-900/80 p-3.5 rounded-xl border border-slate-800 text-[11px] text-slate-400 space-y-1">
+                        <p class="flex items-center gap-1.5 font-semibold text-slate-300">
+                            <i class="fa-solid fa-circle-info text-brand-accent"></i> Note on Estimate:
+                        </p>
+                        <p>Prices are indicative. Final formal quote will be provided after precise site measurement by Flash Builders PH engineers.</p>
+                    </div>
+
+                    <button onclick="submitCalculatorEstimate()" class="w-full bg-gradient-to-r from-brand-accent to-brand-wood hover:brightness-110 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Book Free Site Measurement With This Spec
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4-Step Process Section -->
+    <section id="process" class="py-20 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-xs sm:text-sm uppercase tracking-widest block mb-2">Hassle-Free Execution</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Our 4-Step Turnkey Process</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">How we take your space from initial measurement to stunning completion.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                
+                <!-- Step 1 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative group hover:border-brand-accent transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/20 text-brand-lightGold border border-brand-accent/40 font-black text-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        01
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Consultation & Site Measurement</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">We conduct detailed site oculars, measure dimensions, discuss material preferences, and provide preliminary design quotes.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative group hover:border-brand-accent transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/20 text-brand-lightGold border border-brand-accent/40 font-black text-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        02
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">3D Layout & Off-Site Fabrication</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Once layout is confirmed, modular cabinets and fixtures are precision-crafted in our workshop using heavy-duty marine plywood.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative group hover:border-brand-accent transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/20 text-brand-lightGold border border-brand-accent/40 font-black text-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        03
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Demolition & On-Site Installation</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Our skilled team handles old structure demolition, tile/slab works, electrical wiring, and seamless cabinet fitting.</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 relative group hover:border-brand-accent transition-all">
+                    <div class="w-12 h-12 rounded-xl bg-brand-accent/20 text-brand-lightGold border border-brand-accent/40 font-black text-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                        04
+                    </div>
+                    <h3 class="text-lg font-bold text-white mb-2">Quality Check & Final Turnover</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">Thorough inspection of soft-closing hardware, joint seals, lighting tests, full site cleanup, and official client turnover.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-slate-900/70 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-brand-accent font-bold text-xs sm:text-sm uppercase tracking-widest block mb-2">Client Reviews</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">What Our Clients Say</h2>
+                <p class="text-slate-400 mt-2 text-sm sm:text-base">Real feedback from homeowners and condo investors across Metro Manila.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <!-- Review 1 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">"Flash Builders PH transformed our old Fairview kitchen completely! The marine plywood modular cabinets are super solid and the soft-close drawers feel so high-end. Delivered right on schedule!"</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-white">Mrs. Maria Santos</p>
+                            <p class="text-xs text-slate-400">East Fairview, Quezon City</p>
+                        </div>
+                        <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Kitchen Renovation</span>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">"Super responsive over Viber and very clear with pricing. No surprise hidden costs. The cove lighting and drop ceiling in our condo unit turned out even better than the 3D draft."</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-white">Engr. Daryl Cruz</p>
+                            <p class="text-xs text-slate-400">Skyway Twin Towers Unit</p>
+                        </div>
+                        <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Condo Fit-Out</span>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 text-sm gap-1 mb-4">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed italic">"Highly recommended contractor in Caloocan/QC! Their team built our coffee bar island and custom pantry cabinet. Quality materials and clean installation work."</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-bold text-white">Joanna & Mark</p>
+                            <p class="text-xs text-slate-400">Caloocan City Site</p>
+                        </div>
+                        <span class="text-[10px] bg-slate-800 text-slate-300 px-2 py-1 rounded">Custom Millwork</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+                
+                <!-- Brand Info -->
+                <div class="space-y-4">
+                    <a href="#" class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-accent to-brand-wood flex items-center justify-center text-white">
+                            <i class="fa-solid fa-hammer"></i>
+                        </div>
+                        <span class="text-lg font-extrabold text-white">FLASH BUILDERS <span class="text-brand-accent">PH</span></span>
+                    </a>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Your trusted interior design and fit-out contractor for homes, condominiums, and commercial spaces across Metro Manila & nearby provinces.
+                    </p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://www.facebook.com/flashbuildersph/" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-accent hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://wa.me/639478840105" target="_blank" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-purple-600 hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-viber"></i>
+                        </a>
+                        <a href="mailto:flashbuildersph@gmail.com" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-accent hover:text-white flex items-center justify-center transition-colors">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Nav -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Interior Design & Fit-Out</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Custom Modular Cabinets</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Kitchen Renovations</a></li>
+                        <li><a href="#services" class="hover:text-brand-accent transition-colors">Ceiling & Cove Lighting</a></li>
+                        <li><a href="#calculator" class="hover:text-brand-accent transition-colors">Cost Estimator Tool</a></li>
+                    </ul>
+                </div>
+
+                <!-- Service Coverage Areas -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Service Areas</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Quezon City & East Fairview</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Caloocan & Valenzuela</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Pasig, Taguig, Makati</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-brand-accent"></i> Rizal & Bulacan Sites</li>
+                    </ul>
+                </div>
+
+                <!-- Direct Contact -->
+                <div>
+                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4">Direct Inquiries</h4>
+                    <div class="space-y-3 text-xs">
+                        <div>
+                            <span class="block text-slate-500 font-semibold">Viber / Mobile:</span>
+                            <a href="https://wa.me/639478840105" target="_blank" class="font-bold text-white hover:text-brand-accent">0947 884 0105</a>
+                        </div>
+                        <div>
+                            <span class="block text-slate-500 font-semibold">Email:</span>
+                            <a href="mailto:flashbuildersph@gmail.com" class="font-bold text-white hover:text-brand-accent">flashbuildersph@gmail.com</a>
+                        </div>
+                        <div>
+                            <span class="block text-slate-500 font-semibold">Operating Hours:</span>
+                            <span class="text-slate-300">Mon - Sat: 8:00 AM - 6:00 PM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+                <p>© 2026 Flash Builders PH. All rights reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="https://www.facebook.com/flashbuildersph/" target="_blank" class="hover:underline">Facebook Page</a>
+                    <span>•</span>
+                    <a href="#" onclick="openModal('quoteModal')" class="hover:underline text-brand-accent">Request Official Quote</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full overflow-hidden shadow-2xl relative max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-4 sm:p-5 border-b border-slate-800 flex justify-between items-center">
+                <div>
+                    <span id="modalCategory" class="text-xs font-bold text-brand-lightGold uppercase tracking-wider">Kitchen Renovation</span>
+                    <h3 id="modalTitle" class="text-xl font-bold text-white">East Fairview Custom Kitchen</h3>
+                </div>
+                <button onclick="closeModal('projectModal')" class="p-2 text-slate-400 hover:text-white rounded-lg bg-slate-800 hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="p-5 overflow-y-auto space-y-4">
+                <div class="relative h-64 sm:h-80 rounded-xl overflow-hidden bg-slate-950">
+                    <img id="modalImage" src="" alt="Project Image" class="w-full h-full object-cover">
+                    <div id="modalStatusBadge" class="absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-white">
+                        Completed
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4 text-xs bg-slate-800/60 p-3.5 rounded-xl border border-slate-700/60">
+                    <div>
+                        <span class="text-slate-400 block">Location:</span>
+                        <span id="modalLocation" class="font-bold text-slate-200">East Fairview, QC</span>
+                    </div>
+                    <div>
+                        <span class="text-slate-400 block">Scope Highlights:</span>
+                        <span id="modalScope" class="font-bold text-slate-200">Marine Plywood + Quartz Slab</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-sm font-bold text-white mb-1">Project Details & Execution</h4>
+                    <p id="modalDescription" class="text-xs text-slate-300 leading-relaxed">
+                        Full turnkey installation featuring heavy-duty soft-close hinges, quartz countertop slab, under-cabinet cove LEDs, and backsplash tile installation.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="p-4 border-t border-slate-800 bg-slate-950 flex flex-col sm:flex-row justify-between items-center gap-3">
+                <p class="text-xs text-slate-400">Like this design style for your space?</p>
+                <button onclick="closeModal('projectModal'); openModal('quoteModal');" class="w-full sm:w-auto bg-brand-accent hover:bg-amber-600 text-white text-xs font-bold px-5 py-2.5 rounded-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> Request Similar Design Estimate
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Free Estimate / Official Quote Request Modal -->
+    <div id="quoteModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-lg w-full overflow-hidden shadow-2xl relative max-h-[92vh] flex flex-col">
+            
+            <div class="p-5 border-b border-slate-800 flex justify-between items-center bg-slate-950">
+                <div>
+                    <h3 class="text-lg font-extrabold text-white">Request Official Quote</h3>
+                    <p class="text-xs text-slate-400">Flash Builders PH Ocular & Measurement Request</p>
+                </div>
+                <button onclick="closeModal('quoteModal')" class="p-2 text-slate-400 hover:text-white rounded-lg bg-slate-800 hover:bg-slate-700">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <form id="quoteForm" onsubmit="handleQuoteSubmit(event)" class="p-5 overflow-y-auto space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Your Full Name *</label>
+                    <input type="text" id="clientName" required placeholder="e.g. Maria Santos" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Contact / Viber No. *</label>
+                        <input type="tel" id="clientPhone" required placeholder="0917 123 4567" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-1">Project Location *</label>
+                        <input type="text" id="clientLocation" required placeholder="e.g. Fairview, QC" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Project Category *</label>
+                    <select id="clientCategory" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent">
+                        <option value="Kitchen Renovation & Modular Cabinets">Kitchen Renovation & Modular Cabinets</option>
+                        <option value="Bedroom Wardrobe / Closet Cabinets">Bedroom Wardrobe / Closet Cabinets</option>
+                        <option value="Ceiling & Cove Lighting Upgrade">Ceiling & Cove Lighting Upgrade</option>
+                        <option value="Condominium Turnkey Fit-Out">Condominium Turnkey Fit-Out</option>
+                        <option value="Custom Coffee Bar & Millwork">Custom Coffee Bar & Millwork</option>
+                        <option value="Roofing & Metal Work">Roofing & Metal Work</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-1">Project Details / Estimated Dimensions</label>
+                    <textarea id="clientNotes" rows="3" placeholder="Describe estimated length, preferred timeline, or special requirements..." class="w-full bg-slate-800 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-accent"></textarea>
+                </div>
+
+                <div class="bg-brand-accent/10 border border-brand-accent/30 p-3 rounded-xl text-[11px] text-brand-lightGold flex items-center gap-2">
+                    <i class="fa-solid fa-lock text-sm"></i>
+                    <span>Your request will be submitted directly to our Viber/Email for fast response.</span>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-brand-accent to-brand-wood hover:brightness-110 text-white font-bold py-3.5 rounded-xl shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-viber text-lg"></i> Send Request via Viber / Direct Form
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        /* -------------------------------------------------------------
+           DATA DEFINITIONS: SERVICES
+           ------------------------------------------------------------- */
+        const servicesData = [
+            {
+                id: 'fitout',
+                icon: 'fa-house-laptop',
+                title: 'Interior Design & Fit-Out',
+                desc: 'Complete residential & commercial turnkey fit-outs, space layout optimization, wall accents, and interior finishing.',
+                timeline: '2 - 4 Weeks',
+                inclusions: ['3D & 2D Layouts', 'Turnkey Supervision', 'Material Selection', 'Final Cleaning']
+            },
+            {
+                id: 'modular',
+                icon: 'fa-cubes',
+                title: 'Custom Modular Cabinets',
+                desc: 'Off-site precision fabrication of kitchen overhead/base cabinets, wardrobes, TV consoles, and storage units.',
+                timeline: '7 - 14 Days',
+                inclusions: ['100% Marine Plywood', 'Soft-Close Hardware', 'High-Gloss Laminates', 'Precision Fitting']
+            },
+            {
+                id: 'kitchen',
+                icon: 'fa-sink',
+                title: 'Kitchen Renovation & Makeover',
+                desc: 'End-to-end kitchen upgrades including old slab demolition, quartz/granite countertop installation, and tile splash.',
+                timeline: '10 - 18 Days',
+                inclusions: ['Slab Fabrication', 'Sink & Plumbing Setup', 'Pantry Modulars', 'Backsplash Tiles']
+            },
+            {
+                id: 'lighting',
+                icon: 'fa-lightbulb',
+                title: 'Ceiling & Cove Lighting',
+                desc: 'Gypsum and waterproof PVC ceiling upgrades with ambient cove lights, drop ceiling channels, and warm downlights.',
+                timeline: '3 - 7 Days',
+                inclusions: ['PVC/Gypsum Board', 'Warm LED Strips', 'Drop Ceiling Frames', 'Electrical Wiring']
+            },
+            {
+                id: 'millwork',
+                icon: 'fa-mug-hot',
+                title: 'Custom Millwork & Coffee Bars',
+                desc: 'Bespoke built-in island tables, home coffee bars, custom display racks, and architectural accent paneling.',
+                timeline: '5 - 10 Days',
+                inclusions: ['Tailored Dimensions', 'Wood/Laminate Finish', 'Integrated Outlets', 'Hidden Storage']
+            },
+            {
+                id: 'roofing',
+                icon: 'fa-layer-group',
+                title: 'Roofing & Steel Works',
+                desc: 'Structural metal frame fabrication (tubular steel), outdoor canopy framing, roofing repairs, and waterproofing.',
+                timeline: '4 - 8 Days',
+                inclusions: ['Tubular Metal Frames', 'Long-span Roofing', 'Anti-rust Coating', 'Waterproof Seals']
+            }
+        ];
+
+        /* -------------------------------------------------------------
+           DATA DEFINITIONS: PROJECTS PORTFOLIO
+           ------------------------------------------------------------- */
+        const projectsData = [
+            {
+                id: 1,
+                title: 'Modern Quartz Kitchen Fit-Out',
+                category: 'kitchen',
+                status: 'completed',
+                statusText: 'Completed - Turnover',
+                location: 'East Fairview, Quezon City',
+                scope: 'Modular Cabinets + Quartz Countertop',
+                desc: 'Full kitchen turnover featuring marine plywood base & overhead cabinets in matte grey laminate, seamless quartz countertop slab, and warm LED cove lighting.',
+                beforeImg: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                id: 2,
+                title: 'Residential Modular Cabinetry',
+                category: 'ongoing',
+                status: 'ongoing',
+                statusText: 'Ongoing Site Works',
+                location: 'Caloocan Site',
+                scope: 'Off-site Modular Fabrication',
+                desc: 'Precision modular cabinet assembly for high-volume storage, utilizing heavy-duty DTC soft-close hinges and marine plywood core.',
+                beforeImg: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                id: 3,
+                title: 'Condo Turnkey Interior & Cove Ceiling',
+                category: 'condo',
+                status: 'completed',
+                statusText: 'Completed - Turned Over',
+                location: 'Skyway Twin Towers',
+                scope: 'Ceiling Design + Space Fit-Out',
+                desc: 'Transforming a studio condo into a luxury functional living area with custom drop ceiling, warm ambient lighting, and built-in wardrobe.',
+                beforeImg: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                id: 4,
+                title: 'Custom Coffee Bar & Pantry Unit',
+                category: 'modular',
+                status: 'completed',
+                statusText: 'Completed',
+                location: 'Quezon City Residence',
+                scope: 'Custom Millwork & Storage',
+                desc: 'Tailored coffee bar nook with marine plywood carcass, woodgrain laminate finish, and integrated power outlet channels.',
+                beforeImg: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                id: 5,
+                title: 'Drop Ceiling & PVC Panel Upgrade',
+                category: 'ceiling',
+                status: 'completed',
+                statusText: 'Completed',
+                location: 'Valenzuela City',
+                scope: 'Cove Ceiling & Downlights',
+                desc: 'Installation of modern PVC ceiling panels with recessed downlights and energy-efficient LED cove light strips.',
+                beforeImg: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80'
+            },
+            {
+                id: 6,
+                title: 'Outdoor Tubular Roof Canopy Works',
+                category: 'roofing',
+                status: 'ongoing',
+                statusText: 'Ongoing Site Work',
+                location: 'Bulacan Extension Site',
+                scope: 'Steel Frame + Roofing',
+                desc: 'Structural metal tubular frame welding and long-span roofing installation with waterproof sealing for outdoor patio space.',
+                beforeImg: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80',
+                afterImg: 'https://images.unsplash.com/photo-1541888946425-d0fbb186a5b3?auto=format&fit=crop&w=800&q=80'
+            }
+        ];
+
+        /* -------------------------------------------------------------
+           CALCULATOR LOGIC & STATE
+           ------------------------------------------------------------- */
+        let calcState = {
+            category: 'kitchen',
+            qty: 4,
+            grade: 'standard',
+            addonDemo: false,
+            addonLed: false
+        };
+
+        const calcRates = {
+            kitchen: { basePerMeter: 8500, label: 'Length (Linear Meters)', unit: 'Meters', min: 2, max: 20 },
+            wardrobe: { basePerMeter: 9000, label: 'Cabinet Width (Linear Meters)', unit: 'Meters', min: 1.5, max: 15 },
+            ceiling: { basePerMeter: 1200, label: 'Ceiling Area (Sq. Meters)', unit: 'SqM', min: 10, max: 100 },
+            countertop: { basePerMeter: 7500, label: 'Countertop Length (Linear Meters)', unit: 'Meters', min: 2, max: 15 },
+            condo: { basePerMeter: 15000, label: 'Floor Area (Sq. Meters)', unit: 'SqM', min: 18, max: 80 },
+            roofing: { basePerMeter: 1800, label: 'Roofing Area (Sq. Meters)', unit: 'SqM', min: 15, max: 150 }
+        };
+
+        function renderServices() {
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = servicesData.map(s => `
+                <div class="glass-panel p-6 sm:p-7 rounded-2xl border border-slate-800 hover:border-brand-accent/50 transition-all group flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-brand-accent/10 border border-brand-accent/30 text-brand-lightGold flex items-center justify-center text-xl mb-5 group-hover:scale-110 group-hover:bg-brand-accent group-hover:text-white transition-all">
+                            <i class="fa-solid ${s.icon}"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">${s.title}</h3>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-4">${s.desc}</p>
+                        
+                        <div class="space-y-1.5 pt-3 border-t border-slate-800/80 mb-6">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-1">Includes:</span>
+                            ${s.inclusions.map(inc => `
+                                <div class="flex items-center gap-2 text-xs text-slate-300">
+                                    <i class="fa-solid fa-check text-brand-accent text-[10px]"></i>
+                                    <span>${inc}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800 flex items-center justify-between">
+                        <span class="text-[11px] text-slate-400"><i class="fa-regular fa-clock mr-1"></i> ${s.timeline}</span>
+                        <button onclick="prefillQuoteService('${s.title}')" class="text-xs font-bold text-brand-lightGold hover:text-white flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Inquire <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderProjects(items) {
+            const grid = document.getElementById('projectsGrid');
+            grid.innerHTML = items.map(p => `
+                <div class="glass-panel rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all flex flex-col justify-between group">
+                    <div>
+                        <!-- Project Image Container with Before/After Toggle -->
+                        <div class="relative h-56 overflow-hidden bg-slate-950">
+                            <img id="projectImg_${p.id}" src="${p.afterImg}" alt="${p.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            
+                            <!-- Status Badge -->
+                            <div class="absolute top-3 left-3 px-3 py-1 rounded-full text-[11px] font-bold ${p.status === 'completed' ? 'bg-emerald-500/90 text-white' : 'bg-amber-500/90 text-slate-950'} backdrop-blur-md">
+                                ${p.statusText}
+                            </div>
+
+                            <!-- Before / After Toggle Button -->
+                            <button onclick="toggleBeforeAfter(${p.id}, '${p.beforeImg}', '${p.afterImg}', event)" class="absolute bottom-3 right-3 bg-slate-900/80 hover:bg-slate-900 text-slate-200 text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-md transition-colors flex items-center gap-1.5">
+                                <i class="fa-solid fa-sliders text-brand-accent"></i>
+                                <span id="toggleText_${p.id}">View Site Before</span>
+                            </button>
+                        </div>
+
+                        <!-- Content -->
+                        <div class="p-5">
+                            <div class="flex items-center gap-1.5 text-[11px] font-bold text-brand-lightGold uppercase tracking-wider mb-1">
+                                <i class="fa-solid fa-location-dot"></i> ${p.location}
+                            </div>
+                            <h3 class="text-lg font-bold text-white mb-2 leading-snug">${p.title}</h3>
+                            <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">${p.desc}</p>
+                        </div>
+                    </div>
+
+                    <div class="p-5 pt-0">
+                        <button onclick="openProjectModal(${p.id})" class="w-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold py-2.5 rounded-xl border border-slate-700 transition-colors flex items-center justify-center gap-2">
+                            <span>View Full Spec Details</span>
+                            <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function toggleBeforeAfter(id, beforeUrl, afterUrl, event) {
+            event.stopPropagation();
+            const imgEl = document.getElementById(`projectImg_${id}`);
+            const btnText = document.getElementById(`toggleText_${id}`);
+            
+            if (imgEl.src === afterUrl) {
+                imgEl.src = beforeUrl;
+                btnText.textContent = 'View Turned Over';
+            } else {
+                imgEl.src = afterUrl;
+                btnText.textContent = 'View Site Before';
+            }
+        }
+
+        function filterProjects(cat, btn) {
+            // Update active state on tab buttons
+            document.querySelectorAll('.project-tab').forEach(b => {
+                b.classList.remove('bg-brand-accent', 'text-white');
+                b.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            btn.classList.remove('bg-slate-800', 'text-slate-300');
+            btn.classList.add('bg-brand-accent', 'text-white');
+
+            if (cat === 'all') {
+                renderProjects(projectsData);
+            } else if (cat === 'completed' || cat === 'ongoing') {
+                renderProjects(projectsData.filter(p => p.status === cat));
+            } else {
+                renderProjects(projectsData.filter(p => p.category === cat));
+            }
+        }
+
+        /* -------------------------------------------------------------
+           CALCULATOR LOGIC
+           ------------------------------------------------------------- */
+        function setCalcCategory(cat, btn) {
+            calcState.category = cat;
+            document.querySelectorAll('.calc-cat-btn').forEach(b => {
+                b.classList.remove('border-brand-accent', 'bg-brand-accent/20', 'text-white');
+                b.classList.add('border-slate-700', 'bg-slate-800/60', 'text-slate-300');
+            });
+            btn.classList.remove('border-slate-700', 'bg-slate-800/60', 'text-slate-300');
+            btn.classList.add('border-brand-accent', 'bg-brand-accent/20', 'text-white');
+
+            const conf = calcRates[cat];
+            document.getElementById('calcMetricLabel').textContent = `2. Estimated ${conf.label}`;
+            const range = document.getElementById('calcRange');
+            range.min = conf.min;
+            range.max = conf.max;
+            range.value = Math.round((conf.min + conf.max) / 2);
+            document.getElementById('calcMinLabel').textContent = `${conf.min} ${conf.unit}`;
+            document.getElementById('calcMaxLabel').textContent = `${conf.max} ${conf.unit}`;
+
+            updateCalculator();
+        }
+
+        function updateCalculator() {
+            const cat = calcState.category;
+            const conf = calcRates[cat];
+            const qty = parseFloat(document.getElementById('calcRange').value);
+            calcState.qty = qty;
+
+            const materialVal = document.querySelector('input[name="materialGrade"]:checked').value;
+            calcState.grade = materialVal;
+
+            const addDemo = document.getElementById('addonDemo').checked;
+            const addLed = document.getElementById('addonLed').checked;
+
+            document.getElementById('calcValueDisplay').textContent = `${qty} ${conf.unit}`;
+
+            let baseCost = conf.basePerMeter * qty;
+            if (materialVal === 'premium') baseCost *= 1.25;
+
+            if (addDemo) baseCost += 8500;
+            if (addLed) baseCost += 4500;
+
+            const minPrice = Math.round(baseCost * 0.95);
+            const maxPrice = Math.round(baseCost * 1.15);
+
+            document.getElementById('calcTotalPrice').textContent = `₱${minPrice.toLocaleString()} - ₱${maxPrice.toLocaleString()}`;
+            document.getElementById('summaryCategory').textContent = getCategoryTitle(cat);
+            document.getElementById('summaryQty').textContent = `${qty} ${conf.unit}`;
+            document.getElementById('summaryMaterial').textContent = materialVal === 'premium' ? 'Premium Acrylic / High Gloss' : '100% Marine Plywood';
+            document.getElementById('summaryTimeline').textContent = qty > 10 ? '12 - 20 Working Days' : '7 - 12 Working Days';
+        }
+
+        function getCategoryTitle(catKey) {
+            const map = {
+                kitchen: 'Kitchen Cabinets & Slab',
+                wardrobe: 'Bedroom Wardrobes',
+                ceiling: 'Cove & Drop Ceiling',
+                countertop: 'Quartz Countertop',
+                condo: 'Full Fit-Out Studio',
+                roofing: 'Roofing & Canopy Works'
+            };
+            return map[catKey] || 'Fit-Out Works';
+        }
+
+        function submitCalculatorEstimate() {
+            const category = getCategoryTitle(calcState.category);
+            const qty = calcState.qty;
+            const price = document.getElementById('calcTotalPrice').textContent;
+
+            const notes = `Calculator Estimate Spec:\n- Category: ${category}\n- Estimated Size: ${qty}\n- Estimated Budget: ${price}\n- Material: ${calcState.grade === 'premium' ? 'Premium Acrylic' : 'Marine Plywood Laminate'}`;
+
+            document.getElementById('clientNotes').value = notes;
+            document.getElementById('clientCategory').value = 'Kitchen Renovation & Modular Cabinets';
+            openModal('quoteModal');
+        }
+
+        function prefillQuoteService(serviceTitle) {
+            document.getElementById('clientNotes').value = `Inquiry specifically regarding: ${serviceTitle}`;
+            openModal('quoteModal');
+        }
+
+        /* -------------------------------------------------------------
+           MODAL HANDLERS
+           ------------------------------------------------------------- */
+        function openProjectModal(id) {
+            const p = projectsData.find(item => item.id === id);
+            if (!p) return;
+
+            document.getElementById('modalTitle').textContent = p.title;
+            document.getElementById('modalCategory').textContent = p.category;
+            document.getElementById('modalLocation').textContent = p.location;
+            document.getElementById('modalScope').textContent = p.scope;
+            document.getElementById('modalDescription').textContent = p.desc;
+            document.getElementById('modalImage').src = p.afterImg;
+
+            const badge = document.getElementById('modalStatusBadge');
+            badge.textContent = p.statusText;
+            badge.className = `absolute top-3 left-3 px-3 py-1 rounded-full text-xs font-bold ${p.status === 'completed' ? 'bg-emerald-500 text-white' : 'bg-amber-500 text-slate-950'}`;
+
+            openModal('projectModal');
+        }
+
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const icon = document.getElementById('menuIcon');
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.className = 'fa-solid fa-bars text-xl';
+            } else {
+                icon.className = 'fa-solid fa-xmark text-xl';
+            }
+        }
+
+        function handleQuoteSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const location = document.getElementById('clientLocation').value;
+            const category = document.getElementById('clientCategory').value;
+            const notes = document.getElementById('clientNotes').value;
+
+            const message = `Hello Flash Builders PH!%0A%0A*New Website Quote Request*%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Location:* ${encodeURIComponent(location)}%0A*Category:* ${encodeURIComponent(category)}%0A*Details:* ${encodeURIComponent(notes)}`;
+
+            // Open direct Viber trigger with pre-filled message
+            window.open(`https://wa.me/639478840105?text=${message}`, '_blank');
+            closeModal('quoteModal');
+        }
+
+        // Initialize App on DOM Load
+        window.onload = function() {
+            renderServices();
+            renderProjects(projectsData);
+            updateCalculator();
+        };
+    </script>
+</body>
+</html>
